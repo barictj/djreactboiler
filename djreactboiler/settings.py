@@ -20,7 +20,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'nh0=q5s4$g@hex4ml2yoofi4y8o@ns)4@76iryb^adt^#_tbuw'
+# Generate a new secret key before deployment and then use that
+from django.core.management.utils import get_random_secret_key
+SECRET_KEY = get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -86,8 +88,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_ppsycopg2',
         'NAME': os.path.join(BASE_DIR, 'djreactboiler'),
-        'USER': 'bujttyuaopwvjf',
-        'PASSWORD': 'a24e3ebd3c644cc82a4dbc9b4f249e5baa3c9d1860da77431877704d98c1e32d',
+        'USER': 'Get this from Heroku',
+        'PASSWORD': 'Get this from Heroku',
         'HOST': 'https://djreactboiler.herokuapp.com'
     }
 }
@@ -174,8 +176,8 @@ import psycopg2
 
 
 import dj_database_url
-DATABASES['default'] = dj_database_url.config(default='postgres://bujttyuaopwvjf:a24e3ebd3c644cc82a4dbc9b4f249e5baa3c9d1860da77431877704d98c1e32d@ec2-54-243-223-245.compute-1.amazonaws.com:5432/d91dapols38rma')
-DATABASE_URL = 'postgres://bujttyuaopwvjf:a24e3ebd3c644cc82a4dbc9b4f249e5baa3c9d1860da77431877704d98c1e32d@ec2-54-243-223-245.compute-1.amazonaws.com:5432/d91dapols38rma'
+DATABASES['default'] = dj_database_url.config(default='Get this from Heroku')
+DATABASE_URL = 'Get this from Heroku'
 
 ACCOUNT_EMAIL_REQUIRED = False #Use if Email account is required for your site when signing up
 ACCOUNT_AUTHENTICATION_METHOD = 'username' #For use during logins.  Can use email here
