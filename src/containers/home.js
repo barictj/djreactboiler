@@ -60,7 +60,7 @@ class Home extends React.Component{
             color="primary"
             onClick={this.props.logout}
             >
-              Logoout
+              Logoout!
             </Button>
           </React.Fragment>
           
