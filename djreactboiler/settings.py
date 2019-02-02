@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'djreactboiler.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_ppsycopg2',
         'NAME': os.path.join(BASE_DIR, 'djreactboiler'),
@@ -172,9 +172,10 @@ import psycopg2
 
 # conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
+
 import dj_database_url
-#DATABASES['default'] = dj_database_url.config(default='postgres://pribixbsqkccpx:a445355e4d5f1e3653dd9602de323497bb176c702da5751373a3cc6637a5b30b@ec2-54-225-110-152.compute-1.amazonaws.com:5432/d2iiusbuukpvjq')
-#DATABASE_URL = 'postgres://pribixbsqkccpx:a445355e4d5f1e3653dd9602de323497bb176c702da5751373a3cc6637a5b30b@ec2-54-225-110-152.compute-1.amazonaws.com:5432/d2iiusbuukpvjq'
+DATABASES['default'] = dj_database_url.config(default='postgres://bujttyuaopwvjf:a24e3ebd3c644cc82a4dbc9b4f249e5baa3c9d1860da77431877704d98c1e32d@ec2-54-243-223-245.compute-1.amazonaws.com:5432/d91dapols38rma')
+DATABASE_URL = 'postgres://bujttyuaopwvjf:a24e3ebd3c644cc82a4dbc9b4f249e5baa3c9d1860da77431877704d98c1e32d@ec2-54-243-223-245.compute-1.amazonaws.com:5432/d91dapols38rma'
 
 ACCOUNT_EMAIL_REQUIRED = False #Use if Email account is required for your site when signing up
 ACCOUNT_AUTHENTICATION_METHOD = 'username' #For use during logins.  Can use email here
