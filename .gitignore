@@ -1,0 +1,5 @@
+env
+**/*.pyc
+node_modules/
+.vscode
+db.sqlite3
