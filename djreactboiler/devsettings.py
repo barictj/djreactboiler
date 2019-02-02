@@ -25,7 +25,7 @@ SECRET_KEY = 'nh0=q5s4$g@hex4ml2yoofi4y8o@ns)4@76iryb^adt^#_tbuw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['djreactboiler.herokuapp.com/', '127.0.0.1','localhost']
 
 
 # Application definition
