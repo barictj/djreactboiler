@@ -20,14 +20,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# Generate a new secret key before deployment and then use that
-from django.core.management.utils import get_random_secret_key
-SECRET_KEY = get_random_secret_key()
+# # Generate a new secret key before deployment and then use that.  For example you can use
+# from django.core.management.utils import get_random_secret_key
+# SECRET_KEY = get_random_secret_key()
+SECRET_KEY='Secret Key goes Here but it has to be 54 characters'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+# With Debug = False, you need wsgi.py to use Whitenoise to serve the static files
+##Insert your own domain here.
 
-ALLOWED_HOSTS = ['*']
+
+ALLOWED_HOSTS = ['djreactboiler.herokuapp.com']
 
 
 # Application definition
@@ -56,6 +60,8 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
