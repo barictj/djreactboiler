@@ -11,6 +11,7 @@ import { Button } from '@material-ui/core'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import UserList from '../components/UserList';
 
+
 const theme = createMuiTheme({
     palette: {
       primary: { main: '#311b92' }, // Purple and green play nicely together.
@@ -25,6 +26,8 @@ const styles = theme => ({})
 class Home extends React.Component{ 
   componentDidMount(){
     this.props.onTryAutoSignup();//Checks to see if user is signed in
+    this.props.fetchUserList();  //Grabs user list in an array this.props.users.users
+
   }
 
   render() {
@@ -52,6 +55,13 @@ class Home extends React.Component{
             </Typography>
             <Typography>Your email is {user.email}
             </Typography>
+            <Typography>
+              Welcome
+             </Typography>
+             <Typography>
+              to the 
+              Django React<br></br>Boilerplate
+            </Typography>
           
             <Button 
             size="small" 
@@ -69,7 +79,7 @@ class Home extends React.Component{
           <LoginForm></LoginForm>
 
         }
-        <UserList />
+        <UserList users={this.props.users}/>
         </MuiThemeProvider>
 
     )
@@ -82,12 +92,15 @@ class Home extends React.Component{
         isAuthenticated: state.token !== null,
         user: state.user,
         username: state.username,
-        loading: state.loading
+        loading: state.loading,
+        users: state.users
     }
   }
   const mapStateToDispatch = (dispatch) => ({
     logout: () => dispatch(actions.logout()),
     onTryAutoSignup: () => dispatch(actions.authCheckState()),
+    fetchUserList: () => dispatch(actions.fetchUserList()),
+
   })
   //For use with React Router and Material UI
   export default withRouter(compose(

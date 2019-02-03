@@ -1,11 +1,8 @@
 import React from 'react';
-import * as actions from '../store/actions/auth'
-import { connect } from 'react-redux';
+
 
 class UserList extends React.Component{
-    componentDidMount(){
-        this.props.fetchUserList();  //Grabs user list in an array this.props.users.users
-      }
+
     render(){
             const { users }  = this.props.users //grabs array of users and assigns that to the users const
             console.log(users)
@@ -28,13 +25,6 @@ class UserList extends React.Component{
     )
     }
 }
-const mapStateToProps = (state) => {
-    return{
-        users: state.users,
-    }
-  }
-  const mapStateToDispatch = (dispatch) => ({
-    fetchUserList: () => dispatch(actions.fetchUserList()),
-  })
 
-  export default connect(mapStateToProps, mapStateToDispatch)(UserList)
+
+  export default UserList

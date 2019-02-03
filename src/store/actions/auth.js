@@ -54,7 +54,8 @@ export const userList = (users) => {
     console.log(users)
     return {
         type: actionTypes.GET_USER_LIST,
-        users: {users}
+        users: {users},
+        loading: false
      }
 }
 //for use to check if user still has token

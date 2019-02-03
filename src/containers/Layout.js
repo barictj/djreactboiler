@@ -5,20 +5,24 @@ import { withStyles } from '@material-ui/core/styles';
 import {  withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../store/actions/auth';
+import {  Grid  } from '@material-ui/core'
+import Header from './Header'
 
 
 const styles = theme => ({
     root: {
       backgroundColor: "white",  
     },
+    centerGrid: {
+        textAlign: 'center',
+        justifyContent: 'center,'
+    },
+    
     
   });
 
 
 class CustomLayout extends React.Component {
-componentDidMount(){
-    this.props.onTryAutoSignup()
-}
 
     render() {
         const {classes} = this.props
@@ -27,7 +31,20 @@ componentDidMount(){
             
 
             <div className={classes.root}>
-                {this.props.children}
+            <Grid container spacing={24}>
+                <Grid item xs={3}>
+                </Grid>
+                <Grid item 
+                xs={18}
+                className={classes.centerGrid}>
+                <Header />
+                
+                    {this.props.children}
+                </Grid>
+                <Grid item xs={3}>
+                </Grid>
+            </Grid>
+                
             </div>
 
                

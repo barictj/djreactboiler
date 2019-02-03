@@ -60,8 +60,9 @@ class LoginForm extends React.Component {
     
   
     render() {
-      const { classes } = this.props;
-
+      const { classes, loading } = this.props;
+      console.log(this.props)
+      console.log(loading)
       let errorMessage = null;
       if (this.props.error) {
           errorMessage = (
@@ -72,10 +73,7 @@ class LoginForm extends React.Component {
             <React.Fragment>
             <div className={classes.loginForm}>
             {errorMessage}
-            {
-                this.props.loading ?
-                <CircularProgress className={classes.progress} style={{ color: 'white' }} thickness={7} > </CircularProgress>  
-                :
+      
                 <form onSubmit={this.handleSubmit}>
                 <TextField 
                 name="userName"
@@ -101,7 +99,7 @@ class LoginForm extends React.Component {
                 Or <Link to='/signup/'>Or Signup</Link>
                 </Typography>
                 </form>
-            }
+            
             </div>
             </React.Fragment>
         )}

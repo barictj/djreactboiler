@@ -52,7 +52,8 @@ const authLogout = (state, action) => {
 const userList = (state, action) => {
     console.log('money')
     return updateObject(state, {
-        users: action.users
+        users: action.users,
+        loading: false
     })
 }
 
